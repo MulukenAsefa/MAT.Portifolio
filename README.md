@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🛡️ CYBER MAN - Elite Cybersecurity Portfolio
 
 A modern, futuristic cybersecurity portfolio built with Flutter, featuring glassmorphism design, animated backgrounds, and a professional hacker aesthetic.
@@ -198,3 +199,6 @@ This portfolio demonstrates:
 **Built with 💚 using Flutter**
 
 *"Securing the digital frontier, one line of code at a time."*
+=======
+# MAT.Portifolio
+>>>>>>> 7b6cd509871ba22814bf9bd4f9c24b443793ef31
