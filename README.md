@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-# 🛡️ CYBER MAN - Elite Cybersecurity Portfolio
+
+# 🛡️ CYMAC.443 -  Cybersecurity Portfolio
 
 A modern, futuristic cybersecurity portfolio built with Flutter, featuring glassmorphism design, animated backgrounds, and a professional hacker aesthetic.
 
@@ -32,88 +32,6 @@ A modern, futuristic cybersecurity portfolio built with Flutter, featuring glass
 - **Firebase** - Backend services (ready for integration)
 - **Material Design 3** - Modern UI components
 - **Custom animations** - Smooth, professional transitions
-
-## 🎯 Quick Start
-
-### Prerequisites
-- Flutter SDK 3.35.7 or higher
-- Dart 3.9.2 or higher
-- Chrome/Edge browser (for web testing)
-- Android Studio / Xcode (for mobile testing)
-
-### Installation
-
-1. **Clone the repository**
-```bash
-cd cybersecurity_portfolio
-```
-
-2. **Install dependencies**
-```bash
-flutter pub get
-```
-
-3. **Run on Web**
-```bash
-flutter run -d web-server --web-port=8080
-```
-
-4. **Run on Mobile** (Connect device via USB)
-```bash
-flutter run
-```
-
-5. **Build for Production**
-```bash
-# Web
-flutter build web
-
-# Android
-flutter build apk --release
-
-# iOS
-flutter build ios --release
-```
-
-## 📱 Running on Your Phone
-
-### Android
-1. Enable **Developer Options** on your phone
-2. Enable **USB Debugging**
-3. Connect phone via USB
-4. Run: `flutter run`
-
-### iOS
-1. Connect iPhone via USB
-2. Trust the computer on your device
-3. Run: `flutter run`
-
-## 🌐 Deployment
-
-### Web Deployment (Firebase Hosting)
-```bash
-# Build web version
-flutter build web
-
-# Deploy to Firebase
-firebase deploy --only hosting
-```
-
-### Mobile App Stores
-- **Google Play Store**: Use `flutter build appbundle`
-- **Apple App Store**: Use `flutter build ipa`
-
-## 🎨 Customization
-
-### Colors
-Edit the color scheme in `lib/main.dart`:
-```dart
-colorScheme: const ColorScheme.dark(
-  primary: Color(0xFF00FF41), // Matrix green
-  secondary: Color(0xFF0099FF), // Cyber blue
-  // ... customize other colors
-),
-```
 
 ### Content
 Update your professional information in each screen:
@@ -153,13 +71,6 @@ cybersecurity_portfolio/
 - **Input validation** on all forms
 - **XSS protection** built-in
 
-## 📊 Browser Support
-
-- ✅ Chrome/Edge (Recommended)
-- ✅ Firefox
-- ✅ Safari
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
-
 ## 🎯 Future Enhancements
 
 - [ ] Firebase Authentication integration
@@ -170,17 +81,9 @@ cybersecurity_portfolio/
 - [ ] Analytics integration
 - [ ] PWA (Progressive Web App) features
 
-## 📝 License
-
-This project is open source and available for personal and commercial use.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
 ## 👨‍💻 Author
 
-**Cyber Man**
+**CYMAC.443**
 - Elite Cybersecurity Specialist
 - Penetration Testing Expert
 - Secure Application Developer
@@ -196,9 +99,6 @@ This portfolio demonstrates:
 
 ---
 
-**Built with 💚 using Flutter**
+**Built using Flutter**
+"Securing the digital frontier, one line of code at a time. MAT.Portifolio
 
-*"Securing the digital frontier, one line of code at a time."*
-=======
-# MAT.Portifolio
->>>>>>> 7b6cd509871ba22814bf9bd4f9c24b443793ef31
