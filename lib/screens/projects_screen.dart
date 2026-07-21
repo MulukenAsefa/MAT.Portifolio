@@ -8,7 +8,7 @@ class ProjectsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 800;
-    
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 20 : 80,
@@ -48,32 +48,34 @@ class ProjectsScreen extends StatelessWidget {
               ),
               _buildProjectCard(
                 ' Exam Preparation App',
-                'Developed secure mobile application for exam preparation with encrypted data storage and secure authentication mechanisms.',
+                'Developed secure mobile application for ministry exam preparation , that students can get soft copy text and reference books , organized past exams with AI explanation , parents can see their childrens progress , teacher and the admin can watch the analyses of their students progress ',
                 [],
                 Icons.school_rounded,
                 isMobile,
               ),
-              _buildProjectCard(
-                'Expense Manager Application',
-                'Built expense tracking mobile app with secure data handling, user authentication, and financial data protection.',
-                [],
-                Icons.account_balance_wallet_rounded,
-                isMobile,
-              ),
+           _buildProjectCard(
+  'Expense Manager Application',
+  'Secure Expense Manager mobile application that digitizes personal financial tracking, enabling users to log income and expenses, categorize transactions, and analyze spending behavior through dynamic dashboards. Implemented user authentication, input validation, and secure cloud storage to ensure data integrity, privacy.',
+  [],
+  Icons.account_balance_wallet_rounded,
+  isMobile,
+),
+               _buildProjectCard(
+  'Dormitory Attendance Marker',
+  'Replaced the manual paper-based attendance system with a mobile app that allows students to mark attendance anywhere within the university campus. Attendance is location-verified to ensure authenticity, each student is registered uniquely, and all data is securely backed up.',
+  [],
+  Icons.check_circle_rounded,
+  isMobile,
+),
+
               _buildProjectCard(
                 'Tour Guide Website',
-                'Developed secure tourism website with protected user data, secure payment integration, and OWASP best practices.',
+                'Developed secure tourism website with protected user data, secure file storing and good centered information distribution .',
                 [],
                 Icons.travel_explore_rounded,
                 isMobile,
               ),
-              _buildProjectCard(
-                'Bank Customer Transaction Analysis',
-                'Implemented comprehensive analysis of banking transactions for fraud detection, customer behavior patterns, and financial insights.',
-                [],
-                Icons.analytics_rounded,
-                isMobile,
-              ),
+             
             ],
           ),
         ],
@@ -81,9 +83,11 @@ class ProjectsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildProjectCard(String title, String description, List<String> tech, IconData icon, bool isMobile) {
+  Widget _buildProjectCard(String title, String description, List<String> tech,
+      IconData icon, bool isMobile) {
     return Container(
       width: isMobile ? double.infinity : 350,
+      height: isMobile ? 280 : 320,
       padding: EdgeInsets.all(isMobile ? 20 : 30),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -114,29 +118,35 @@ class ProjectsScreen extends StatelessWidget {
           Text(
             title,
             style: GoogleFonts.poppins(
-              fontSize: isMobile ? 16 : 20,
+              fontSize: 18,
               fontWeight: FontWeight.w600,
               color: Colors.black87,
             ),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
           SizedBox(height: isMobile ? 8 : 10),
-          Text(
-            description,
-            style: GoogleFonts.poppins(
-              fontSize: isMobile ? 13 : 14,
-              height: 1.6,
-              color: Colors.black54,
+          Expanded(
+            child: Text(
+              description,
+              style: GoogleFonts.poppins(
+                fontSize: 14,
+                height: 1.6,
+                color: Colors.black54,
+              ),
+              maxLines: 5,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
-          SizedBox(height: isMobile ? 15 : 20),
+          SizedBox(height: isMobile ? 10 : 15),
           Wrap(
             spacing: 8,
             runSpacing: 8,
             children: tech
                 .map((t) => Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: isMobile ? 10 : 12,
-                        vertical: isMobile ? 5 : 6,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
                       ),
                       decoration: BoxDecoration(
                         color: const Color(0xFF2563EB).withOpacity(0.1),
@@ -145,7 +155,7 @@ class ProjectsScreen extends StatelessWidget {
                       child: Text(
                         t,
                         style: GoogleFonts.poppins(
-                          fontSize: isMobile ? 11 : 12,
+                          fontSize: 12,
                           color: const Color(0xFF2563EB),
                           fontWeight: FontWeight.w500,
                         ),

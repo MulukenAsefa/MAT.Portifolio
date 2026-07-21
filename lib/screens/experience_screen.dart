@@ -8,7 +8,7 @@ class ExperienceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 800;
-    
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 20 : 80,
@@ -35,44 +35,55 @@ class ExperienceScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: isMobile ? 30 : 60),
+       
           _buildExperienceItem(
-            '2026',
-            'Security Research Projects',
-            'INSA & Academic Research',
-            'Conducting advanced security research on web application vulnerabilities, SQL injection techniques, secure coding practices, and emerging cybersecurity threats.',
-            true,
-            isMobile,
-          ),
-          _buildExperienceItem(
-            '2025',
-            'Cybersecurity Intern',
-            'INSA (Information Network Security Agency)',
-            'Conducted penetration testing on enterprise systems, discovered critical vulnerability with CVSS score of 9.6. Performed security assessments on three companies, identifying SQL injection, authentication flaws, and access control vulnerabilities.',
-            false,
-            isMobile,
-          ),
+  '2026',
+  ' Mobile Application Project',
+  'Smart Exam Preparation App',
+  'Engineered a full-stack mobile application using Flutter and firebase & supabase  to digitize and optimize exam preparation workflows. Implemented secure authentication, real-time data synchronization, AI API integration for adaptive learning, and performance analytics to enhance user experience, reduce manual overhead, and enable data-driven academic decision-making.',
+  true,
+  isMobile,
+),
           _buildExperienceItem(
             '2025',
-            'Certified Ethical Hacker (CEH)',
-            'EC-Council',
-            'Comprehensive ethical hacking and penetration testing certification covering OWASP Top 10, network security, vulnerability assessment, and offensive security techniques.',
-            false,
+            'Cybersecurity career starter',
+            'Hack and Fix',
+            '"Cybersecurity career starter certification focused on practical ethical hacking, vulnerability discovery, and fixing security issues with hands-on labs and exercises.',
+             false,
             isMobile,
           ),
+  _buildExperienceItem(
+  '2025',
+  'INSA Cybersecurity Internship',
+  'Cybersecurity Intern on  Penetration Testing',
+  'Completed a hands-on cybersecurity internship at the Information Network Security Agency (INSA), performing penetration testing on enterprise systems. Conducted reconnaissance, scanning, enumeration, and exploitation using tools such as Nmap, Nikto, Hydra, Burp Suite, and Metasploit. Identified a critical vulnerability with a CVSS score of 9.6 and applied vulnerability assessment and secure testing methodologies in real-world environments.',
+  false,
+  isMobile,
+),
+      _buildExperienceItem(
+  '2025',
+  ' Artificial Intelligence ',
+  'Udacity',
+  'Completed an intensive Artificial Intelligence  focusing on search algorithms, probabilistic models, and decision-making systems. Developed intelligent agents using techniques such as A* search, minimax algorithms, and constraint satisfaction. Built real-world AI projects including a Sudoku solver and game-playing agents. ',
+  false,
+  isMobile,
+),
           _buildExperienceItem(
-            '2022-Present',
-            'Information Technology Student',
-            'University - Cybersecurity Specialization',
-            'Pursuing Bachelor\'s degree in Information Technology with focus on Cybersecurity, Network Security, and Secure Software Development. Hands-on experience with penetration testing tools and methodologies.',
+            '2025',
+            'Certified ApI penetration Testing.',
+            'ApI penetration Testing',
+            'Hands-on professional course in API penetration testing covering OWASP API Security Top 10, authentication & authorization attacks, injection attacks, and practical labs using Burp Suite.',
             false,
             isMobile,
           ),
+        
         ],
       ),
     );
   }
 
-  Widget _buildExperienceItem(String year, String title, String organization, String description, bool isFirst, bool isMobile) {
+  Widget _buildExperienceItem(String year, String title, String organization,
+      String description, bool isFirst, bool isMobile) {
     return Padding(
       padding: EdgeInsets.only(bottom: isMobile ? 30 : 40),
       child: Row(

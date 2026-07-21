@@ -40,11 +40,9 @@ class SkillsScreen extends StatelessWidget {
             runSpacing: isMobile ? 20 : 40,
             alignment: WrapAlignment.center,
             children: [
-              _buildSkillCard('Flutter Development', 'Medium - Dart', isMobile),
               _buildSkillCard('Penetration Testing', 'Burp Suite, Metasploit, Nmap', isMobile),
-              _buildSkillCard('Data Analysis', 'Beginner - Python', isMobile),
+              _buildSkillCard('Flutter Development', 'Medium - Dart', isMobile),
               _buildSkillCard('Vulnerability Assessment', 'Security Auditing & Testing', isMobile),
-              _buildSkillCard('Web Development', 'Frontend & Backend', isMobile),
               _buildSkillCard('Network Security', 'Security Protocols & Analysis', isMobile),
             ],
           ),

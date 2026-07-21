@@ -132,7 +132,7 @@ class ContactScreen extends StatelessWidget {
                 ),
                 SizedBox(height: isMobile ? 15 : 20),
                 ElevatedButton(
-                  onPressed: () => _launchURL('mailto:mulukenasefateju@gmail.com'),
+                  onPressed: () => _launchURL('https://www.linkedin.com/in/mulukenassefa'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: const Color(0xFF2563EB),
@@ -157,7 +157,7 @@ class ContactScreen extends StatelessWidget {
           ),
           SizedBox(height: isMobile ? 20 : 40),
           Text(
-            '© 2024 Muluken Assefa. All rights reserved.',
+            '© 2026 Muluken Assefa. All rights reserved.',
             style: GoogleFonts.poppins(
               fontSize: isMobile ? 12 : 14,
               color: Colors.black45,

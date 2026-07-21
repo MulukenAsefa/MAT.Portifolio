@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                         ],
                       ),
                       child: Text(
-                        'Information Technology Student',
+                        'Information Technology Specialist',
                         style: GoogleFonts.poppins(
                           fontSize: isMobile ? 16 : 24,
                           fontWeight: FontWeight.w600,
@@ -193,11 +193,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                                       color: Colors.white,
                                     ),
                                   ),
-                                  const SizedBox(width: 10),
-                                  const Icon(
-                                    Icons.arrow_forward_rounded,
-                                    color: Colors.white,
-                                  ),
+          
                                 ],
                               ),
                             ),

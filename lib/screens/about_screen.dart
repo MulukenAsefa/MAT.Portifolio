@@ -93,7 +93,7 @@ class AboutScreen extends StatelessWidget {
         ),
         SizedBox(height: isMobile ? 15 : 30),
         Text(
-          'Hi, I am Muluken Assefa, an Information Technology student specializing in Cybersecurity since 2022. In 2025, I completed an internship at INSA (Information Network Security Agency) where I discovered a critical vulnerability with CVSS score of 9.6 and conducted penetration testing on multiple enterprise systems.',
+          'Hi, I am Muluken Assefa, an Information Technology Specialist specializing in Information Technology since 2022 at Arbaminch University. In 2025, I completed an internship at INSA (Information Network Security Agency) where I discovered a critical vulnerability with CVSS score of 9.6 and conducted penetration testing on multiple enterprise systems.',
           style: GoogleFonts.poppins(
             fontSize: isMobile ? 14 : 16,
             height: 1.8,
@@ -102,7 +102,7 @@ class AboutScreen extends StatelessWidget {
         ),
         SizedBox(height: isMobile ? 10 : 20),
         Text(
-          'I specialize in offensive security operations, secure application development, and data analytics. My portfolio includes mobile apps (Exam Preparation, Expense Manager), web development (Tour Guide Website), and extensive penetration testing experience. Currently pursuing advanced security research in 2026.',
+          'I specialize in security operations and secure application development. My portfolio includes penetration testing experience  and mobile apps (Exam Preparation, Expense Manager), web development (Tour Guide Website) and mini seurity tools.',
           style: GoogleFonts.poppins(
             fontSize: isMobile ? 14 : 16,
             height: 1.8,
@@ -118,7 +118,7 @@ class AboutScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   _buildStat('3', 'Companies Tested'),
                   const SizedBox(height: 20),
-                  _buildStat('4', 'Years Experience'),
+                  _buildStat('2', 'Years Experience'),
                 ],
               )
             : Row(
@@ -127,7 +127,7 @@ class AboutScreen extends StatelessWidget {
                   const SizedBox(width: 60),
                   _buildStat('3', 'Companies Tested'),
                   const SizedBox(width: 60),
-                  _buildStat('4', 'Years Experience'),
+                  _buildStat('2', 'Years Experience'),
                 ],
               ),
       ],

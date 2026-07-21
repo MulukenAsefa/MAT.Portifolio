@@ -1,5 +1,9 @@
+HEAD
 
 # 🛡️ CYMAC.443 -  Cybersecurity Portfolio
+
+# 🛡️ CYBER MAN - Elite Cybersecurity Portfolio
+ (automatic deployment)
 
 A modern, futuristic cybersecurity portfolio built with Flutter, featuring glassmorphism design, animated backgrounds, and a professional hacker aesthetic.
 
@@ -25,6 +29,7 @@ A modern, futuristic cybersecurity portfolio built with Flutter, featuring glass
 4. **Projects** - Mission archive with operation codenames
 5. **Certifications** - Security clearances and credentials
 6. **Contact** - Secure communication channels
+<<<<<<< HEAD
 
 ### 🚀 Technical Stack
 - **Flutter 3.35.7** - Cross-platform framework
@@ -102,3 +107,11 @@ This portfolio demonstrates:
 **Built using Flutter**
 "Securing the digital frontier, one line of code at a time. MAT.Portifolio
 
+=======
+## 🚀 Technical Stack
+- Flutter 3.35.7
+- Dart 3.9.2
+- Firebase (ready for integration)
+- Material Design 3
+- Custom animations
+>>>>>>> 1fd2d93 (automatic deployment)

@@ -18,10 +18,10 @@ class CybersecurityPortfolioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Muluken Assefa - Cybersecurity Portfolio',
-      debugShowCheckedModeBanner: false, // Removes the debug banner
+      debugShowCheckedModeBanner: false, 
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2563EB), // Modern blue
+          seedColor: const Color(0xFF2563EB), 
           brightness: Brightness.light,
         ),
         textTheme: GoogleFonts.poppinsTextTheme(),
@@ -209,42 +209,52 @@ class _MainScreenState extends State<MainScreen> {
           : Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
+                Flexible(
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        borderRadius: BorderRadius.circular(10),
+                        child: const Icon(
+                          Icons.security,
+                          color: Colors.white,
+                          size: 24,
+                        ),
                       ),
-                      child: const Icon(
-                        Icons.security,
-                        color: Colors.white,
-                        size: 24,
+                      const SizedBox(width: 15),
+                      Flexible(
+                        child: Text(
+                          'Muluken Assefa',
+                          style: GoogleFonts.poppins(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: const Color(0xFF2563EB),
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                    ),
-                    const SizedBox(width: 15),
-                    Text(
-                      'Muluken Assefa',
-                      style: GoogleFonts.poppins(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xFF2563EB),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                Row(
-                  children: [
-                    _buildNavItem('Home', 0),
-                    _buildNavItem('About', 1),
-                    _buildNavItem('Skills', 2),
-                    _buildNavItem('Projects', 3),
-                    _buildNavItem('Experience', 4),
-                    _buildNavItem('Contact', 5),
-                  ],
+                Flexible(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        _buildNavItem('Home', 0),
+                        _buildNavItem('About', 1),
+                        _buildNavItem('Skills', 2),
+                        _buildNavItem('Projects', 3),
+                        _buildNavItem('Experience', 4),
+                        _buildNavItem('Contact', 5),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
