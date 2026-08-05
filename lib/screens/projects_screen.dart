@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectsScreen extends StatelessWidget {
   const ProjectsScreen({super.key});
@@ -45,13 +46,15 @@ class ProjectsScreen extends StatelessWidget {
                 [],
                 Icons.bug_report_rounded,
                 isMobile,
+                null,
               ),
               _buildProjectCard(
-                ' Exam Preparation App',
-                'Developed secure mobile application for ministry exam preparation , that students can get soft copy text and reference books , organized past exams with AI explanation , parents can see their childrens progress , teacher and the admin can watch the analyses of their students progress ',
+                'Smart Exam Preparation App',
+                'Developed secure mobile application for ministry exam preparation, that students can get soft copy text and reference books, organized past exams with AI explanation, parents can see their childrens progress, teacher and the admin can watch the analyses of their students progress.',
                 [],
                 Icons.school_rounded,
                 isMobile,
+                'https://smart-exam-app9.web.app',
               ),
            _buildProjectCard(
   'Expense Manager Application',
@@ -59,6 +62,7 @@ class ProjectsScreen extends StatelessWidget {
   [],
   Icons.account_balance_wallet_rounded,
   isMobile,
+  'https://muluken-expense-manager.web.app/',
 ),
                _buildProjectCard(
   'Dormitory Attendance Marker',
@@ -66,14 +70,16 @@ class ProjectsScreen extends StatelessWidget {
   [],
   Icons.check_circle_rounded,
   isMobile,
+  'https://dormitory-attendance-app.web.app/',
 ),
 
               _buildProjectCard(
                 'Tour Guide Website',
-                'Developed secure tourism website with protected user data, secure file storing and good centered information distribution .',
+                'Developed secure tourism website with protected user data, secure file storing and good centered information distribution.',
                 [],
                 Icons.travel_explore_rounded,
                 isMobile,
+                'https://wondersofgamo1.gt.tc/',
               ),
              
             ],
@@ -84,7 +90,7 @@ class ProjectsScreen extends StatelessWidget {
   }
 
   Widget _buildProjectCard(String title, String description, List<String> tech,
-      IconData icon, bool isMobile) {
+      IconData icon, bool isMobile, String? projectUrl) {
     return Container(
       width: isMobile ? double.infinity : 350,
       height: isMobile ? 280 : 320,
@@ -104,15 +110,27 @@ class ProjectsScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: EdgeInsets.all(isMobile ? 12 : 15),
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: EdgeInsets.all(isMobile ? 12 : 15),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Icon(icon, color: Colors.white, size: isMobile ? 25 : 30),
               ),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(icon, color: Colors.white, size: isMobile ? 25 : 30),
+              if (projectUrl != null)
+                IconButton(
+                  icon: const Icon(Icons.open_in_new_rounded),
+                  color: const Color(0xFF2563EB),
+                  tooltip: 'View Project',
+                  onPressed: () => _launchURL(projectUrl),
+                ),
+            ],
           ),
           SizedBox(height: isMobile ? 15 : 20),
           Text(
@@ -139,32 +157,36 @@ class ProjectsScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: isMobile ? 10 : 15),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: tech
-                .map((t) => Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF2563EB).withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Text(
-                        t,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          color: const Color(0xFF2563EB),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ))
-                .toList(),
-          ),
+          if (projectUrl != null)
+            ElevatedButton.icon(
+              onPressed: () => _launchURL(projectUrl),
+              icon: const Icon(Icons.launch, size: 16),
+              label: Text(
+                'View Live',
+                style: GoogleFonts.poppins(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF2563EB),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                elevation: 0,
+              ),
+            ),
         ],
       ),
     );
+  }
+
+  Future<void> _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $url');
+    }
   }
 }
