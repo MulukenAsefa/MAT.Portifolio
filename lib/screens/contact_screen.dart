@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../constants/colors.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});
@@ -34,22 +35,23 @@ class ContactScreen extends StatelessWidget {
         horizontal: isMobile ? 20 : 80,
         vertical: isMobile ? 50 : 100,
       ),
+      color: AppColors.background,
       child: Column(
         children: [
           Text(
             'Contact',
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.inter(
               fontSize: isMobile ? 32 : 48,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: AppColors.textPrimary,
             ),
           ),
           SizedBox(height: isMobile ? 5 : 10),
           Text(
             'Let\'s connect and discuss cybersecurity',
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.inter(
               fontSize: isMobile ? 14 : 20,
-              color: Colors.black54,
+              color: AppColors.textSecondary,
             ),
             textAlign: TextAlign.center,
           ),
@@ -114,19 +116,27 @@ class ContactScreen extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(isMobile ? 20 : 30),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
-              ),
+              color: AppColors.cardBg,
               borderRadius: BorderRadius.circular(15),
+              border: Border.all(
+                color: AppColors.accent.withOpacity(0.5),
+                width: 1,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.accentGlow.withOpacity(0.2),
+                  blurRadius: 20,
+                ),
+              ],
             ),
             child: Column(
               children: [
                 Text(
                   'Ready to secure your systems?',
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.inter(
                     fontSize: isMobile ? 18 : 24,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                    color: AppColors.textPrimary,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -134,8 +144,8 @@ class ContactScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () => _launchURL('https://www.linkedin.com/in/mulukenassefa'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: const Color(0xFF2563EB),
+                    backgroundColor: AppColors.accent,
+                    foregroundColor: AppColors.background,
                     padding: EdgeInsets.symmetric(
                       horizontal: isMobile ? 30 : 40,
                       vertical: isMobile ? 15 : 20,
@@ -143,10 +153,11 @@ class ContactScreen extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
+                    elevation: 0,
                   ),
                   child: Text(
                     'Get In Touch',
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.inter(
                       fontSize: isMobile ? 14 : 16,
                       fontWeight: FontWeight.w600,
                     ),
@@ -158,9 +169,9 @@ class ContactScreen extends StatelessWidget {
           SizedBox(height: isMobile ? 20 : 40),
           Text(
             '© 2026 Muluken Assefa. All rights reserved.',
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.inter(
               fontSize: isMobile ? 12 : 14,
-              color: Colors.black45,
+              color: AppColors.textSecondary.withOpacity(0.5),
             ),
             textAlign: TextAlign.center,
           ),
@@ -179,17 +190,19 @@ class ContactScreen extends StatelessWidget {
           width: isMobile ? double.infinity : 300,
           padding: EdgeInsets.all(isMobile ? 20 : 30),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.cardBg,
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
               color: url != null 
-                  ? const Color(0xFF2563EB).withOpacity(0.3)
-                  : Colors.grey[200]!,
+                  ? AppColors.accent.withOpacity(0.5)
+                  : AppColors.accent.withOpacity(0.2),
               width: url != null ? 2 : 1,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.05),
+                color: url != null 
+                    ? AppColors.accentGlow.withOpacity(0.15)
+                    : Colors.transparent,
                 blurRadius: 20,
                 offset: const Offset(0, 5),
               ),
@@ -200,37 +213,35 @@ class ContactScreen extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(isMobile ? 12 : 15),
                 decoration: BoxDecoration(
-                  gradient: url != null
-                      ? const LinearGradient(
-                          colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
-                        )
-                      : null,
-                  color: url != null ? null : const Color(0xFF2563EB).withOpacity(0.1),
+                  color: AppColors.accent.withOpacity(0.1),
+                  border: Border.all(
+                    color: AppColors.accent.withOpacity(0.3),
+                    width: 1,
+                  ),
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
                   icon,
                   size: isMobile ? 25 : 30,
-                  color: url != null ? Colors.white : const Color(0xFF2563EB),
+                  color: AppColors.accent,
                 ),
               ),
               SizedBox(height: isMobile ? 15 : 20),
               Text(
                 title,
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: isMobile ? 16 : 18,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+                  color: AppColors.textPrimary,
                 ),
               ),
               SizedBox(height: isMobile ? 8 : 10),
               Text(
                 value,
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.sourceCodePro(
                   fontSize: isMobile ? 12 : 14,
-                  color: url != null ? const Color(0xFF2563EB) : Colors.black54,
+                  color: url != null ? AppColors.accent : AppColors.textSecondary,
                   fontWeight: url != null ? FontWeight.w500 : FontWeight.normal,
-                  decoration: url != null ? TextDecoration.underline : null,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -241,17 +252,17 @@ class ContactScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Click to ${url.startsWith('mailto:') ? 'email' : 'visit'}',
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.inter(
                         fontSize: 11,
-                        color: Colors.black45,
+                        color: AppColors.textSecondary.withOpacity(0.7),
                         fontStyle: FontStyle.italic,
                       ),
                     ),
                     const SizedBox(width: 5),
-                    const Icon(
+                    Icon(
                       Icons.open_in_new,
                       size: 12,
-                      color: Colors.black45,
+                      color: AppColors.textSecondary.withOpacity(0.7),
                     ),
                   ],
                 ),

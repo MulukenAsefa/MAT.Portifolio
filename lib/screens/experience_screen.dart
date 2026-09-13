@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../constants/colors.dart';
 
 class ExperienceScreen extends StatelessWidget {
   const ExperienceScreen({super.key});
@@ -14,23 +15,23 @@ class ExperienceScreen extends StatelessWidget {
         horizontal: isMobile ? 20 : 80,
         vertical: isMobile ? 50 : 100,
       ),
-      color: Colors.grey[50],
+      color: AppColors.background,
       child: Column(
         children: [
           Text(
             'Experience',
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.inter(
               fontSize: isMobile ? 32 : 48,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: AppColors.textPrimary,
             ),
           ),
           SizedBox(height: isMobile ? 5 : 10),
           Text(
             'Professional journey and certifications',
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.inter(
               fontSize: isMobile ? 14 : 20,
-              color: Colors.black54,
+              color: AppColors.textSecondary,
             ),
             textAlign: TextAlign.center,
           ),
@@ -94,19 +95,28 @@ class ExperienceScreen extends StatelessWidget {
               Container(
                 width: isMobile ? 50 : 60,
                 height: isMobile ? 50 : 60,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
+                  color: AppColors.cardBg,
+                  border: Border.all(
+                    color: AppColors.accent,
+                    width: 2,
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.accentGlow.withOpacity(0.2),
+                      blurRadius: 15,
+                      spreadRadius: 2,
+                    ),
+                  ],
                 ),
                 child: Center(
                   child: Text(
                     year,
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.sourceCodePro(
                       fontSize: isMobile ? 10 : 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppColors.accent,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -116,7 +126,16 @@ class ExperienceScreen extends StatelessWidget {
                 Container(
                   width: 2,
                   height: isMobile ? 60 : 80,
-                  color: Colors.grey[300],
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        AppColors.accent.withOpacity(0.3),
+                        AppColors.accent.withOpacity(0.1),
+                      ],
+                    ),
+                  ),
                 ),
             ],
           ),
@@ -125,11 +144,15 @@ class ExperienceScreen extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(isMobile ? 20 : 25),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.cardBg,
                 borderRadius: BorderRadius.circular(15),
+                border: Border.all(
+                  color: AppColors.accent.withOpacity(0.2),
+                  width: 1,
+                ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: AppColors.accentGlow.withOpacity(0.05),
                     blurRadius: 20,
                     offset: const Offset(0, 5),
                   ),
@@ -140,28 +163,28 @@ class ExperienceScreen extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.inter(
                       fontSize: isMobile ? 16 : 22,
                       fontWeight: FontWeight.w600,
-                      color: Colors.black87,
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   const SizedBox(height: 5),
                   Text(
                     organization,
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.sourceCodePro(
                       fontSize: isMobile ? 13 : 16,
                       fontWeight: FontWeight.w500,
-                      color: const Color(0xFF2563EB),
+                      color: AppColors.accent,
                     ),
                   ),
                   SizedBox(height: isMobile ? 10 : 15),
                   Text(
                     description,
-                    style: GoogleFonts.poppins(
+                    style: GoogleFonts.inter(
                       fontSize: isMobile ? 13 : 14,
                       height: 1.6,
-                      color: Colors.black54,
+                      color: AppColors.textSecondary,
                     ),
                   ),
                 ],

@@ -20,11 +20,14 @@ class CybersecurityPortfolioApp extends StatelessWidget {
       title: 'Muluken Assefa - Cybersecurity Portfolio',
       debugShowCheckedModeBanner: false, 
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2563EB), 
-          brightness: Brightness.light,
+        colorScheme: ColorScheme.dark(
+          primary: const Color(0xFF00FF88),
+          secondary: const Color(0xFF00CC66),
+          surface: const Color(0xFF0d0d0d),
+          background: const Color(0xFF000000),
         ),
-        textTheme: GoogleFonts.poppinsTextTheme(),
+        scaffoldBackgroundColor: const Color(0xFF000000),
+        textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
         useMaterial3: true,
       ),
       home: const MainScreen(),
@@ -71,7 +74,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFF0a0a0a),
       body: Stack(
         children: [
           // Main scrollable content
@@ -109,10 +112,16 @@ class _MainScreenState extends State<MainScreen> {
         vertical: isMobile ? 15 : 20,
       ),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.98),
+        color: const Color(0xFF0d0d0d).withOpacity(0.95),
+        border: Border(
+          bottom: BorderSide(
+            color: const Color(0xFF00FF88).withOpacity(0.15),
+            width: 1,
+          ),
+        ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: const Color(0xFF00FF88).withOpacity(0.05),
             blurRadius: 15,
             offset: const Offset(0, 3),
           ),
@@ -129,36 +138,41 @@ class _MainScreenState extends State<MainScreen> {
                         Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
+                            color: const Color(0xFF00FF88).withOpacity(0.1),
+                            border: Border.all(
+                              color: const Color(0xFF00FF88).withOpacity(0.3),
+                              width: 1,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Icon(
                             Icons.security,
-                            color: Colors.white,
+                            color: Color(0xFF00FF88),
                             size: 20,
                           ),
                         ),
                         const SizedBox(width: 10),
                         Text(
                           'MA',
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.sourceCodePro(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: const Color(0xFF2563EB),
+                            color: const Color(0xFF00FF88),
                           ),
                         ),
                       ],
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        gradient: _isMenuOpen
-                            ? const LinearGradient(
-                                colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
-                              )
-                            : null,
-                        color: _isMenuOpen ? null : const Color(0xFF2563EB).withOpacity(0.1),
+                        color: _isMenuOpen 
+                            ? const Color(0xFF00FF88).withOpacity(0.1)
+                            : const Color(0xFF00FF88).withOpacity(0.05),
+                        border: Border.all(
+                          color: _isMenuOpen 
+                              ? const Color(0xFF00FF88).withOpacity(0.5)
+                              : const Color(0xFF00FF88).withOpacity(0.2),
+                          width: 1,
+                        ),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: IconButton(
@@ -173,7 +187,7 @@ class _MainScreenState extends State<MainScreen> {
                           child: Icon(
                             _isMenuOpen ? Icons.close_rounded : Icons.menu_rounded,
                             key: ValueKey(_isMenuOpen),
-                            color: _isMenuOpen ? Colors.white : const Color(0xFF2563EB),
+                            color: const Color(0xFF00FF88),
                             size: 28,
                           ),
                         ),
@@ -210,30 +224,34 @@ class _MainScreenState extends State<MainScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
+                  flex: 2,
                   child: Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        padding: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
+                          color: const Color(0xFF00FF88).withOpacity(0.1),
+                          border: Border.all(
+                            color: const Color(0xFF00FF88).withOpacity(0.3),
+                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                         child: const Icon(
                           Icons.security,
-                          color: Colors.white,
-                          size: 24,
+                          color: Color(0xFF00FF88),
+                          size: 20,
                         ),
                       ),
-                      const SizedBox(width: 15),
+                      const SizedBox(width: 10),
                       Flexible(
                         child: Text(
                           'Muluken Assefa',
-                          style: GoogleFonts.poppins(
-                            fontSize: 24,
+                          style: GoogleFonts.inter(
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: const Color(0xFF2563EB),
+                            color: Colors.white,
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
@@ -242,18 +260,17 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                 ),
                 Flexible(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        _buildNavItem('Home', 0),
-                        _buildNavItem('About', 1),
-                        _buildNavItem('Skills', 2),
-                        _buildNavItem('Projects', 3),
-                        _buildNavItem('Experience', 4),
-                        _buildNavItem('Contact', 5),
-                      ],
-                    ),
+                  flex: 3,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      _buildNavItem('Home', 0),
+                      _buildNavItem('About', 1),
+                      _buildNavItem('Skills', 2),
+                      _buildNavItem('Projects', 3),
+                      _buildNavItem('Experience', 4),
+                      _buildNavItem('Contact', 5),
+                    ],
                   ),
                 ),
               ],
@@ -282,17 +299,20 @@ class _MainScreenState extends State<MainScreen> {
           padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
           margin: const EdgeInsets.symmetric(vertical: 5),
           decoration: BoxDecoration(
-            gradient: isSelected
-                ? const LinearGradient(
-                    colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
-                  )
-                : null,
-            color: isSelected ? null : Colors.grey[50],
+            color: isSelected 
+                ? const Color(0xFF00FF88).withOpacity(0.1)
+                : const Color(0xFF0d0d0d),
+            border: Border.all(
+              color: isSelected 
+                  ? const Color(0xFF00FF88).withOpacity(0.5)
+                  : const Color(0xFF00FF88).withOpacity(0.1),
+              width: 1,
+            ),
             borderRadius: BorderRadius.circular(12),
             boxShadow: isSelected
                 ? [
                     BoxShadow(
-                      color: const Color(0xFF2563EB).withOpacity(0.3),
+                      color: const Color(0xFF00FF88).withOpacity(0.2),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -304,31 +324,29 @@ class _MainScreenState extends State<MainScreen> {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: isSelected
-                      ? Colors.white.withOpacity(0.2)
-                      : const Color(0xFF2563EB).withOpacity(0.1),
+                  color: const Color(0xFF00FF88).withOpacity(isSelected ? 0.15 : 0.05),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(
                   icon,
-                  color: isSelected ? Colors.white : const Color(0xFF2563EB),
+                  color: const Color(0xFF00FF88),
                   size: 20,
                 ),
               ),
               const SizedBox(width: 15),
               Text(
                 title,
-                style: GoogleFonts.poppins(
+                style: GoogleFonts.inter(
                   fontSize: 16,
                   fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-                  color: isSelected ? Colors.white : Colors.black87,
+                  color: isSelected ? Colors.white : Colors.white70,
                 ),
               ),
               const Spacer(),
               if (isSelected)
                 const Icon(
                   Icons.arrow_forward_ios_rounded,
-                  color: Colors.white,
+                  color: Color(0xFF00FF88),
                   size: 16,
                 ),
             ],
@@ -340,27 +358,39 @@ class _MainScreenState extends State<MainScreen> {
 
   Widget _buildNavItem(String title, int index) {
     final isSelected = _selectedIndex == index;
-    final isMobile = MediaQuery.of(context).size.width < 800;
+    final screenWidth = MediaQuery.of(context).size.width;
     
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: isMobile ? 5 : 15),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth > 1200 ? 8 : 4),
       child: TextButton(
         onPressed: () => _scrollToSection(index),
         style: TextButton.styleFrom(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth > 1200 ? 16 : 10, 
+            vertical: 10
+          ),
           backgroundColor: isSelected
-              ? const Color(0xFF2563EB).withOpacity(0.1)
+              ? const Color(0xFF00FF88).withOpacity(0.1)
               : Colors.transparent,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(8),
+            side: BorderSide(
+              color: isSelected 
+                  ? const Color(0xFF00FF88).withOpacity(0.3)
+                  : Colors.transparent,
+              width: 1,
+            ),
           ),
+          minimumSize: Size.zero,
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Text(
           title,
-          style: GoogleFonts.poppins(
-            fontSize: isMobile ? 12 : 16,
+          style: GoogleFonts.inter(
+            fontSize: screenWidth > 1200 ? 14 : 12,
             fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-            color: isSelected ? const Color(0xFF2563EB) : Colors.black87,
+            color: isSelected ? const Color(0xFF00FF88) : Colors.white70,
+            letterSpacing: 0,
           ),
         ),
       ),

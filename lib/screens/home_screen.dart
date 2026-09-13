@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../constants/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,7 +12,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
-  late Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -23,10 +23,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
     );
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 0.3),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
     _controller.forward();
   }
 
@@ -42,168 +38,152 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     final isMobile = screenWidth < 800;
     
     return Container(
-      height: MediaQuery.of(context).size.height,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            const Color(0xFF2563EB).withOpacity(0.08),
-            Colors.white,
-            const Color(0xFF8B5CF6).withOpacity(0.08),
-          ],
-        ),
-      ),
+      color: AppColors.background,
       child: Center(
-        child: Padding(
-          padding: EdgeInsets.all(isMobile ? 20.0 : 40.0),
-          child: FadeTransition(
-            opacity: _fadeAnimation,
-            child: SlideTransition(
-              position: _slideAnimation,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TweenAnimationBuilder<double>(
-                    duration: const Duration(milliseconds: 1000),
-                    tween: Tween(begin: 0.0, end: 1.0),
-                    builder: (context, value, child) {
-                      return Transform.scale(
-                        scale: value,
-                        child: Container(
-                          width: isMobile ? 120 : 160,
-                          height: isMobile ? 120 : 160,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: const LinearGradient(
-                              colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xFF2563EB).withOpacity(0.4),
-                                blurRadius: 40,
-                                spreadRadius: 10,
-                              ),
-                            ],
-                          ),
-                          child: Icon(
-                            Icons.security_rounded,
-                            size: isMobile ? 60 : 80,
-                            color: Colors.white,
-                          ),
-                        ),
-                      );
-                    },
+        child: FadeTransition(
+          opacity: _fadeAnimation,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(isMobile ? 20.0 : 40.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Security Icon
+                Container(
+                  width: isMobile ? 120 : 160,
+                  height: isMobile ? 120 : 160,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColors.cardBg,
+                    border: Border.all(
+                      color: AppColors.accent,
+                      width: 2,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.accentGlow.withOpacity(0.3),
+                        blurRadius: 30,
+                        spreadRadius: 5,
+                      ),
+                    ],
                   ),
-                  SizedBox(height: isMobile ? 30 : 50),
-                  Text(
-                    'Muluken Assefa',
-                    style: GoogleFonts.poppins(
-                      fontSize: isMobile ? 36 : 64,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      letterSpacing: -1,
+                  child: Icon(
+                    Icons.security_rounded,
+                    size: isMobile ? 60 : 80,
+                    color: AppColors.accent,
+                  ),
+                ),
+                SizedBox(height: isMobile ? 30 : 50),
+                
+                // Name
+                Text(
+                  'Muluken Assefa',
+                  style: GoogleFonts.inter(
+                    fontSize: isMobile ? 36 : 64,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.textPrimary,
+                    letterSpacing: -1,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: isMobile ? 10 : 15),
+                
+                // Title
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: isMobile ? 20 : 30,
+                    vertical: isMobile ? 8 : 12,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.cardBg,
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(
+                      color: AppColors.accent.withOpacity(0.5),
+                      width: 1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.accentGlow.withOpacity(0.2),
+                        blurRadius: 15,
+                        offset: const Offset(0, 5),
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    'Information Technology Specialist',
+                    style: GoogleFonts.sourceCodePro(
+                      fontSize: isMobile ? 14 : 24,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.accent,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: isMobile ? 10 : 15),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: isMobile ? 20 : 30,
-                        vertical: isMobile ? 8 : 12,
-                      ),
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
-                        ),
-                        borderRadius: BorderRadius.circular(30),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(0xFF2563EB).withOpacity(0.3),
-                            blurRadius: 15,
-                            offset: const Offset(0, 5),
-                          ),
-                        ],
-                      ),
-                      child: Text(
-                        'Information Technology Specialist',
-                        style: GoogleFonts.poppins(
-                          fontSize: isMobile ? 16 : 24,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
+                ),
+                SizedBox(height: isMobile ? 20 : 30),
+                
+                // Badges
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: 15,
+                  runSpacing: 10,
+                  children: [
+                    _buildBadge('Web & Mobile Developer', Icons.code_rounded, isMobile),
+                    _buildBadge('Penetration Tester', Icons.shield_rounded, isMobile),
+                    _buildBadge('Tech Enthusiast', Icons.analytics_rounded, isMobile),
+                  ],
+                ),
+                SizedBox(height: isMobile ? 30 : 50),
+                
+                // CTA Button
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.cardBg,
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(
+                      color: AppColors.accent,
+                      width: 2,
                     ),
-                  SizedBox(height: isMobile ? 20 : 30),
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 15,
-                    runSpacing: 10,
-                    children: [
-                      _buildBadge('Penetration Testing', Icons.bug_report_rounded, isMobile),
-                      _buildBadge('Ethical Hacking', Icons.shield_rounded, isMobile),
-                      _buildBadge('Data Analytics', Icons.analytics_rounded, isMobile),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.accentGlow.withOpacity(0.3),
+                        blurRadius: 20,
+                        offset: const Offset(0, 8),
+                      ),
                     ],
                   ),
-                  SizedBox(height: isMobile ? 30 : 50),
-                  MouseRegion(
-                    cursor: SystemMouseCursors.click,
-                    child: TweenAnimationBuilder<double>(
-                      duration: const Duration(milliseconds: 300),
-                      tween: Tween(begin: 1.0, end: 1.0),
-                      builder: (context, value, child) {
-                        return Transform.scale(
-                          scale: value,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                colors: [Color(0xFF2563EB), Color(0xFF8B5CF6)],
-                              ),
-                              borderRadius: BorderRadius.circular(30),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(0xFF2563EB).withOpacity(0.4),
-                                  blurRadius: 20,
-                                  offset: const Offset(0, 8),
-                                ),
-                              ],
-                            ),
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.transparent,
-                                shadowColor: Colors.transparent,
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: isMobile ? 35 : 50,
-                                  vertical: isMobile ? 18 : 25,
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'View My Work',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: isMobile ? 16 : 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-          
-                                ],
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {},
+                      borderRadius: BorderRadius.circular(30),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: isMobile ? 35 : 50,
+                          vertical: isMobile ? 18 : 25,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'View My Work',
+                              style: GoogleFonts.inter(
+                                fontSize: isMobile ? 16 : 18,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.accent,
                               ),
                             ),
-                          ),
-                        );
-                      },
+                            const SizedBox(width: 8),
+                            Icon(
+                              Icons.arrow_forward_rounded,
+                              color: AppColors.accent,
+                              size: 20,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -218,15 +198,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         vertical: isMobile ? 10 : 12,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.cardBg,
         borderRadius: BorderRadius.circular(25),
         border: Border.all(
-          color: const Color(0xFF2563EB).withOpacity(0.3),
-          width: 2,
+          color: AppColors.accent.withOpacity(0.3),
+          width: 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: AppColors.accentGlow.withOpacity(0.1),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -238,15 +218,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           Icon(
             icon,
             size: isMobile ? 16 : 18,
-            color: const Color(0xFF2563EB),
+            color: AppColors.accent,
           ),
           SizedBox(width: isMobile ? 6 : 8),
           Text(
             text,
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.inter(
               fontSize: isMobile ? 13 : 15,
               fontWeight: FontWeight.w500,
-              color: Colors.black87,
+              color: AppColors.textPrimary,
             ),
           ),
         ],
