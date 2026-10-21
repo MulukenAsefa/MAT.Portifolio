@@ -35,8 +35,17 @@ class AboutScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: const Center(
-                    child: Icon(Icons.person, size: 100, color: Colors.white),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      'assets/images/TEZAR.jpg',
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Center(
+                          child: Icon(Icons.person, size: 100, color: Colors.white),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -63,8 +72,17 @@ class AboutScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: const Center(
-                      child: Icon(Icons.person, size: 150, color: Colors.white),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        'assets/images/TEZAR.jpg',
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Center(
+                            child: Icon(Icons.person, size: 150, color: Colors.white),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ),
