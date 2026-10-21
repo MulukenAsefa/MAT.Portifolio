@@ -29,13 +29,13 @@ I am an Information Technology specialist and software developer at Arba Minch U
 - **Backend and data:** Firebase, Supabase, PostgreSQL, MongoDB, SQL Server, and REST APIs
 - **Core competencies:** secure coding, full-stack development, debugging, and problem solving
 
-## Featured projects
+## Projects
 
-- **Smart Exam Preparation App** — mobile application for exam preparation, learning resources, AI-assisted explanations, and progress tracking. [Open project](https://smart-exam-app9.web.app)
-- **Expense Manager Application** — personal finance app for recording and analyzing income and expenses. [Open project](https://muluken-expense-manager.web.app)
+- **Critical Vulnerability Discovery** — identified and reported a critical CVSS 9.6 vulnerability during enterprise penetration testing.
+- **Smart Exam Preparation App** — mobile app with study resources, organized past exams, AI-assisted explanations, and student progress tracking. [Open project](https://smart-exam-app9.web.app)
+- **Expense Manager Application** — app for recording income and expenses, organizing transactions, and reviewing spending. [Open project](https://muluken-expense-manager.web.app)
 - **Dormitory Attendance Marker** — campus attendance app with location verification. [Open project](https://dormitory-attendance-app.web.app)
-- **Tour Guide Website** — tourism information website. [Open website](https://wondersofgamo1.gt.tc)
-- **Critical Vulnerability Discovery** — enterprise penetration-testing work involving a reported CVSS 9.6 finding.
+- **Tour Guide Website** — tourism website with organized destination information. [Open website](https://wondersofgamo1.gt.tc)
 
 ## Built with
 
@@ -43,31 +43,6 @@ I am an Information Technology specialist and software developer at Arba Minch U
 - Material 3
 - Google Fonts
 - Firebase Hosting
-
-## Run locally
-
-Install the [Flutter SDK](https://docs.flutter.dev/get-started/install), then run these commands from the project directory:
-
-```powershell
-flutter pub get
-flutter run -d chrome
-```
-
-To create a production web build:
-
-```powershell
-flutter build web --base-href /
-```
-
-The generated site is placed in `build/web`.
-
-## Deploy to Firebase Hosting
-
-The repository's `firebase.json` is configured to publish `build/web`. Install and authenticate the [Firebase CLI](https://firebase.google.com/docs/cli), then run:
-
-```powershell
-firebase deploy --only hosting --project muluken-portfolio
-```
 
 ## Contact
 
