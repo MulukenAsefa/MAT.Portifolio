@@ -38,11 +38,19 @@ class ExperienceScreen extends StatelessWidget {
           SizedBox(height: isMobile ? 30 : 60),
        
           _buildExperienceItem(
+            '2026',
+            'System Administrator - Odoo ERP',
+            'Enterprise Resource Planning',
+            'Administered and configured Odoo ERP system across all core modules including Sales, CRM, Inventory, Manufacturing, Purchasing, Accounting, HR, and Project Management. Managed user access control, security groups, and permissions. Configured automated workflows, custom reports, and integrated third-party applications. Customized forms, dashboards, and business processes to align with organizational requirements. Conducted user training and technical support for seamless ERP adoption.',
+            true,
+            isMobile,
+          ),
+          _buildExperienceItem(
   '2026',
   ' Mobile Application Project',
   'Smart Exam Preparation App',
   'Engineered a full-stack mobile application using Flutter and firebase & supabase  to digitize and optimize exam preparation workflows. Implemented secure authentication, real-time data synchronization, AI API integration for adaptive learning, and performance analytics to enhance user experience, reduce manual overhead, and enable data-driven academic decision-making.',
-  true,
+  false,
   isMobile,
 ),
           _buildExperienceItem(

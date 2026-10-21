@@ -64,10 +64,10 @@ class SkillsScreen extends StatelessWidget {
                 Icons.storage_rounded, 
                 isMobile
               ),
-              // 4. System Administration & IT Support (NEW)
+              // 4. System Administration
               _buildSkillCard(
-                'System Administration & IT Support', 
-                '• Server Management\n• Network Configuration\n• Technical Support\n• System Troubleshooting\n• IT Infrastructure', 
+                'System Administration',
+                '• Odoo ERP Administration\n• Server Management\n• Network Configuration\n• Technical Support\n• System Troubleshooting\n• IT Infrastructure',
                 Icons.computer_rounded, 
                 isMobile
               ),
