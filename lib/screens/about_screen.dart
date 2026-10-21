@@ -76,7 +76,7 @@ class AboutScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       child: Image.asset(
                         'assets/images/TEZAR.jpg',
-                        fit: BoxFit.cover,
+                        fit: BoxFit.contain,
                         errorBuilder: (context, error, stackTrace) {
                           return const Center(
                             child: Icon(Icons.person, size: 150, color: Colors.white),

@@ -10,7 +10,7 @@ My professional portfolio showcases my work in cybersecurity, application develo
 
 ## About
 
-I am an Information Technology specialist and software developer at Arba Minch University, where I have worked since 2022. My experience includes cybersecurity testing, application development, and Odoo ERP system administration. During a 2025 internship at the Information Network Security Agency (INSA), I performed penetration testing on enterprise systems and identified a critical vulnerability rated CVSS 9.6.
+I am an Information Technology specialist and software developer at Arba Minch University, where I have worked since 2022. My experience includes cybersecurity testing, application development, and Odoo ERP system administration. During a 2025 internship at the Information Network Security Agency (INSA), I performed penetration testing on enterprise systems and identified a critical vulnerability rated CVSS 9.6. The About section displays my full profile photo without cropping it on desktop.
 
 ## Portfolio sections
 
