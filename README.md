@@ -1,4 +1,4 @@
-# Muluken Assefa — Cybersecurity Portfolio
+# Muluken Assefa
 
 Personal portfolio for my work in cybersecurity, software development, and IT.
 
