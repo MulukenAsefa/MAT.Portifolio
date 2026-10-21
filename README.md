@@ -1,10 +1,12 @@
 # Muluken Assefa
 
-Personal portfolio for my work in cybersecurity, software development, and IT.
+**Information Technology Specialist | Software Developer | System Administrator**
 
-**Live portfolio:** [muluken-portfolio.web.app](https://muluken-portfolio.web.app)
+My professional portfolio showcases my work in cybersecurity, application development, and Odoo ERP administration.
 
-**Source code:** [github.com/MulukenAsefa/MAT.Portifolio](https://github.com/MulukenAsefa/MAT.Portifolio)
+**Explore the live portfolio:** [muluken-portfolio.web.app](https://muluken-portfolio.web.app)
+
+**Explore the source code:** [github.com/MulukenAsefa/MAT.Portifolio](https://github.com/MulukenAsefa/MAT.Portifolio)
 
 ## About
 
